@@ -1,6 +1,7 @@
 SYSEXIT = 1
 EXIT_SUCCESS = 0
 
+
 .data
 
 liczba1: .long 0xF1111111, 0xE2222222, 0x33333333, 0x04444444
@@ -23,7 +24,7 @@ loop:
 movl liczba1(,%ecx,4), %eax
 movl liczba2(,%ecx,4), %ebx
 
-#Dodawanie adcl - sumuje A i B i flage CF
+#Dodawanie
 adcl %ebx, %eax
 
 #Wysłanie wyniku do stosu
