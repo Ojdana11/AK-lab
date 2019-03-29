@@ -4,6 +4,8 @@ STDOUT =1
 STDIN =0
 RETURN =0
 
+.align 32
+
 .section .data
 
 star: .ascii "*"

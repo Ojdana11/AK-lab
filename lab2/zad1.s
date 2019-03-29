@@ -1,5 +1,4 @@
 EXIT =1
-READ =3
 WRITE =4
 STDOUT =1
 RETURN =0
@@ -12,10 +11,12 @@ new_line_len = . - new_line
 
 
 .global _start
-_start:
+.type _start, @function
 
-popa
-mov $32, %edx
+_start:
+pop %ecx
+mov $6, %edx
+pop %ecx
 mov $STDOUT, %ebx
 mov $WRITE, %eax
 int $0x80
@@ -25,6 +26,28 @@ mov $new_line, %ecx
 mov $STDOUT, %ebx
 mov $WRITE, %eax
 int $0x80
+
+pop %ecx
+mov $0, %edi
+
+loop_start:
+cmpl $62, %edi
+je loop_end
+inc %edi
+mov $32, %edx
+pop %ecx
+mov $STDOUT, %ebx
+mov $WRITE, %eax
+int $0x80
+jmp loop_start
+
+loop_end:
+mov $new_line_len, %edx
+mov $new_line, %ecx
+mov $STDOUT, %ebx
+mov $WRITE, %eax
+int $0x80
+
 
 mov $RETURN, %ebx
 mov $EXIT, %eax
