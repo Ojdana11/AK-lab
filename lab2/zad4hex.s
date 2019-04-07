@@ -60,8 +60,15 @@ je end_checking_no_one
 
 cmp $48, %bl
 jl wrong_format
-cmp $57, %bl
+cmp $70, %bl
 jg wrong_format
+cmp $57, %bl
+jg check_if_letter_one
+jmp check_no_one_start
+
+check_if_letter_one:
+cmp $65, %bl
+jl wrong_format
 jmp check_no_one_start
 
 end_checking_no_one:
@@ -87,17 +94,23 @@ check_no_two_start:
 cmp $BUFF_SIZE, %edi
 je end_checking_no_two
 
-mov numberTwoin(, %edi,1), %bh
+mov numberTwoin(, %edi,1), %bl
 inc %edi
 #znak nowej linii wczytany do bufora = 0x0a czyli 10 w dec
-cmp $10, %bh
+cmp $10, %bl
 je end_checking_no_two
 
-cmp $48, %bh
+cmp $48, %bl
 jl wrong_format
-cmp $57, %bh
+cmp $70, %bl
 jg wrong_format
+cmp $57, %bl
+jg check_if_letter_two
+jmp check_no_two_start
 
+check_if_letter_two:
+cmp $65, %bl
+jl wrong_format
 jmp check_no_two_start
 
 end_checking_no_two:

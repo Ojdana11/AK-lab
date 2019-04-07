@@ -15,7 +15,7 @@ new_line_len = . - new_line
 
 _start:
 pop %ecx
-mov $6, %edx
+mov $8, %edx
 pop %ecx
 mov $STDOUT, %ebx
 mov $WRITE, %eax
