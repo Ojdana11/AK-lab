@@ -26,6 +26,8 @@ new_line_len = . - new_line
 .global _start
 
 _start:
+push $prompt_one
+call printf
 #podaj gorna granice
 #mov $prompt_one, %ecx
 #mov $prompt_one_len, %edx

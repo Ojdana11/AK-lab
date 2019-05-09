@@ -1,0 +1,5 @@
+as zad1.s -o zad1.o
+ld -melf_i386 -dynamic-linker /lib/ld-linux.so.2 \
+-o zad1 zad1.o -lc
+
+http://students.mimuw.edu.pl/SO/Projekt03-04/temat2-g1/index.html
