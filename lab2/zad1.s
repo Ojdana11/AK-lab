@@ -11,7 +11,6 @@ new_line_len = . - new_line
 
 
 .global _start
-.type _start, @function
 
 _start:
 pop %ecx
