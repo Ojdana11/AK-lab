@@ -1,0 +1,14 @@
+zad1: zad1.o multithreading.o
+	gcc -o zad1 zad1.c
+	gcc -o multithreading multithreading.s
+
+all: zad1 multithreading
+
+clean:
+	rm -f zad1 zad1.o
+	rm -f multithreading multithreading.o
+
+
+
+as multithreading.s -o multithreading.o
+gcc -o multithreading multithreading.o -lpthread
